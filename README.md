@@ -1,135 +1,135 @@
 # Warehouse_Drone
 
-## Overview
+## 项目简介
 
-`warehouse_ws` is a ROS 2 Humble workspace for an intelligent warehouse drone system running on a Sunrise-based onboard computer.
+`warehouse_ws` 是一个基于 ROS 2 Humble 的无人机工作区，用于地瓜派机载电脑上的智能仓储场景。
 
-The project focuses on autonomous flight in warehouse environments, including flight-controller communication, LiDAR-based localization, mission execution, onboard perception, and system orchestration.
+该项目围绕仓储环境中的自主飞行、定位、任务执行、机载感知与系统联动展开，形成了从飞控通信、激光雷达定位、任务控制到感知识别的完整链路。
 
-## Typical Use Cases
+## 典型应用场景
 
-- Autonomous inspection in warehouse environments
-- Mission-based takeoff, route execution, and action control
-- Stable flight with LiDAR-assisted localization and mapping
-- Onboard visual tasks such as image streaming, target recognition, and barcode-related processing
+- 智能仓储环境中的无人机自主巡检
+- 基于预设任务的自动起飞、航线执行与动作控制
+- 结合激光雷达建图/定位的稳定飞行
+- 结合机载视觉的目标识别、条码识别或图像回传
 
-## Key Features
+## 系统特点
 
-- Organized as a ROS 2 multi-package workspace
-- Intended for deployment on a Sunrise onboard computer
-- Uses `mavros` for flight-controller communication
-- Uses Livox MID360 and FastLIO in the localization pipeline
-- Supports mission configuration, flight control, status coordination, and perception input
+- 基于 ROS 2 多包工作区组织
+- 机载电脑默认面向地瓜派部署
+- 采用 `mavros` 与飞控通信
+- 采用 Livox MID360 与 FastLIO 进行定位相关处理
+- 支持任务配置、执行控制、状态联动与感知数据接入
 
-## Core System Flow
+## 主要功能链路
 
-A typical runtime chain is:
+典型链路如下：
 
-1. `mavros` connects to the flight controller
-2. `livox_ros_driver2` provides MID360 LiDAR data
-3. `fast_lio` outputs odometry/localization
-4. `drone_localization` bridges localization data into MAVROS
-5. `drone_control` provides TF and mission execution logic
-6. `drone_perception` handles onboard perception input
-7. `drone_bringup` manages startup orchestration and supervision
+1. `mavros` 与飞控建立通信
+2. `livox_ros_driver2` 接入 MID360 雷达数据
+3. `fast_lio` 输出里程计/定位结果
+4. `drone_localization` 将定位结果桥接到 MAVROS
+5. `drone_control` 建立控制所需 TF 与任务执行链路
+6. `drone_perception` 处理机载感知输入
+7. `drone_bringup` 负责整体启动编排与运行监督
 
-## Workspace Packages
+## 工作区包说明
 
 ### 1. drone_bringup
-Handles startup orchestration, node launching, readiness checks, and supervisor logic.
+用于系统启动编排、节点拉起、状态等待与启动链监督。
 
-Main responsibilities:
-- Launch core nodes in sequence
-- Wait for required topics to become ready
-- Manage the onboard startup flow
-- Support automatic startup with system service integration
+主要作用：
+- 按顺序拉起核心节点
+- 等待关键 topic 就绪
+- 管理机载启动流程
+- 配合自启动 service 完成开机自动运行
 
 ### 2. drone_control
-Handles mission control, action execution, and flight-control-related bridge logic.
+用于任务控制、动作执行以及飞行控制相关的桥接逻辑。
 
-Main responsibilities:
-- Provide TF for control logic
-- Execute mission actions and flight procedures
-- Connect mission configuration to runtime execution
-- Support the offboard control workflow
+主要作用：
+- 建立飞行控制所需 TF
+- 执行任务流程中的动作控制
+- 对接 mission 配置与实际飞行执行
+- 为 offboard 控制链路提供支撑
 
 ### 3. drone_localization
-Handles localization bridging and pose consistency monitoring.
+用于定位结果桥接与定位一致性监测。
 
-Main responsibilities:
-- Convert and bridge FastLIO outputs into MAVROS
-- Feed external/vision-based pose data to the flight controller
-- Monitor deviation between localization pose and flight-controller local pose
-- Support abnormal-condition detection and restart decisions
+主要作用：
+- 将 FastLIO 输出转换并桥接到 MAVROS
+- 向飞控提供视觉/外部定位输入
+- 对视觉位姿与飞控本地位姿进行偏差监测
+- 为异常检测与重启判据提供依据
 
 ### 4. drone_mission
-Stores and manages mission configuration.
+用于任务配置管理。
 
-Main responsibilities:
-- Keep mission YAML files
-- Describe waypoints, actions, and process parameters
-- Serve as the configuration input for task execution
+主要作用：
+- 存放任务 YAML 配置
+- 描述航点、动作或流程参数
+- 作为任务执行时的配置输入
 
 ### 5. drone_msgs
-Defines shared message and service interfaces used across the workspace.
+用于定义工作区公共消息与服务接口。
 
-Main responsibilities:
-- Provide common msg/srv definitions
-- Standardize task, status, and perception-related interfaces
-- Reduce coupling between packages
+主要作用：
+- 提供各功能包之间共享的 msg/srv
+- 统一任务、状态与感知相关的数据接口
+- 降低跨包通信耦合
 
 ### 6. drone_perception
-Handles onboard perception input and result processing.
+用于机载感知接入与识别结果处理。
 
-Main responsibilities:
-- Receive TCP/JPEG data from the K230 camera side
-- Process image and perception results
-- Support target recognition, barcode-related capabilities, and image-link integration
-- Provide perception input for warehouse-oriented tasks
+主要作用：
+- 接入 K230 相机侧的 TCP/JPEG 数据
+- 处理图像与感知结果
+- 支持目标识别、条码相关能力与图像链路对接
+- 为仓储识别类任务提供输入
 
 ### 7. drone_qt_2
-Acts as an onboard-side or relay-side support program.
+用于机载端或中转侧的业务支撑程序。
 
-Main responsibilities:
-- Store or forward task-related data
-- Bridge data between the ground side and the onboard side
-- Assist with mission triggering and perception-result return paths
+主要作用：
+- 承接部分任务数据落地或转发
+- 参与地面端与机载端之间的数据衔接
+- 配合任务启动与感知结果回传链路
 
 ### 8. drone_warehouse
-Reserved or domain-specific package for warehouse-related functionality.
+用于仓储场景相关功能的预留或专项组织。
 
-Based on the current repository state, this package exists in the workspace but has limited public description. From its name and project context, it appears to be intended for intelligent warehouse scenario extensions.
+目前从包信息看，该包在工作区中已存在，但公开描述较少。按命名和项目用途判断，它主要面向智能仓储场景的业务扩展。
 
-## External Dependencies
+## 依赖组件
 
-Important external dependencies include:
+项目的重要外部依赖包括：
 
 - `mavros`
 - `livox_ros_driver2`
 - `fast_lio`
 
-Depending on the deployment, the system may also rely on:
+根据具体部署，还可能依赖：
 
 - ROS 2 Humble
 - Livox MID360
-- A flight controller with MAVLink connectivity
-- Onboard vision hardware such as K230
+- 飞控系统与对应 MAVLink 通信链路
+- 机载视觉硬件（如 K230）
 
-## Deployment Notes
+## 部署说明
 
-This repository is suitable as:
+当前仓库更适合作为：
 
-- A ROS 2 workspace source tree
-- A development and analysis workspace for the onboard system
-- A software integration base for an intelligent warehouse drone project
+- ROS 2 工作区源码管理目录
+- 机载系统功能分析与开发目录
+- 智能仓储无人机项目的软件集成基础
 
-The actual runtime environment is typically a Linux-based onboard device, while the current Windows copy can be used for reading, organizing, analyzing, and editing the code.
+实际运行环境通常为机载端 Linux 设备；当前 Windows 副本可用于阅读、整理、分析和修改代码。
 
-## Intended Audience
+## 适用对象
 
-This project is useful for work involving:
+该项目适合以下工作：
 
-- Intelligent warehouse drone development
-- ROS 2 multi-package integration
-- LiDAR localization and flight-controller integration
-- Joint development of onboard perception and mission systems
+- 无人机智能仓储项目开发
+- ROS 2 多包系统集成
+- 激光雷达定位与飞控联调
+- 机载感知与任务系统联合开发
