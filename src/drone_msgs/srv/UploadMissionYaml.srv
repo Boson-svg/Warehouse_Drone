@@ -1,0 +1,5 @@
+string mission_yaml
+---
+bool success
+string message
+string saved_path

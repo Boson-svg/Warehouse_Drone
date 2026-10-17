@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="vision_target_board">
+    <static>true</static>
+    <link name="board_link">
+      <collision name="board_collision">
+        <geometry>
+          <box>
+            <size>0.36 0.02 0.36</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="board_background">
+        <geometry>
+          <box>
+            <size>0.36 0.02 0.36</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="finder_top_left">
+        <pose>-0.10 0.011 0.10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.002 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="finder_top_right">
+        <pose>0.10 0.011 0.10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.002 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="finder_bottom_left">
+        <pose>-0.10 0.011 -0.10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.002 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_mark">
+        <pose>0.0 0.012 0.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 0.002 0.06</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.1 0.1 1</ambient>
+          <diffuse>0.8 0.1 0.1 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="cross_vertical">
+        <pose>0.0 0.011 0.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.02 0.002 0.24</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="cross_horizontal">
+        <pose>0.0 0.011 0.0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.24 0.002 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

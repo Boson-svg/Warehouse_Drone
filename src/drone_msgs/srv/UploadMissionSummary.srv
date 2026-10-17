@@ -1,0 +1,7 @@
+WorldPoint[] points
+MissionSummary summary
+---
+bool success
+string message
+string saved_path
+uint32 action_count

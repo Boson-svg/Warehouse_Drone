@@ -1,0 +1,21 @@
+float64 takeoff_altitude
+float64 move_altitude
+float64 start_altitude
+float64 yaw
+float64 tolerance
+float64 yaw_tolerance_deg
+float64 max_xy_speed_mps
+float64 max_z_speed_mps
+float64 max_yaw_rate_deg_s
+float64 takeoff_hover_duration
+float64 landing_hover_duration
+float64 move_hover_duration
+bool add_hover_between_takeoff
+bool add_hover_between_landing
+bool add_hover_between_moves
+bool auto_start_mission
+bool compress_straight_segments
+string frame
+
+# Global visual-servo defaults written to the flat YAML system section.
+VisualServoConfig visual_servo

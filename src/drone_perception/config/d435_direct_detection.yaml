@@ -1,0 +1,26 @@
+qr_vision_node:
+  ros__parameters:
+    camera_input_mode: d435_direct
+    d435_serial: "327122074056"
+    d435_width: 640
+    d435_height: 480
+    d435_fps: 30
+    d435_wait_timeout_ms: 2000
+    d435_reconnect_delay_ms: 2000
+
+    enable_bpu: true
+    debug_view: true
+    camera_controls_enabled: false
+
+    # H.264/RTSP video stream worker inside qr_vision_node. It encodes the same
+    # D435ColorFrame that feeds detection and pushes it via FFmpeg -c:v copy to
+    # the local MediaMTX started by start_d435.sh.
+    # NOTE: 1500 kbit/s is the acceptance bitrate on the current phone-hotspot
+    # WiFi (~2 Mbit/s link). Re-test 3000 on a 5 GHz/wired link before raising.
+    video_stream_enabled: true
+    video_stream_width: 640
+    video_stream_height: 480
+    video_stream_fps: 30
+    video_stream_bitrate_kbps: 1500
+    video_stream_gop: 15
+    video_stream_publish_url: rtsp://127.0.0.1:8554/d435i

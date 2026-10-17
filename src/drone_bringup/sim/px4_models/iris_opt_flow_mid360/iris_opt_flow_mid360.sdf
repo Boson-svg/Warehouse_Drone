@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="iris_opt_flow_mid360">
+    <include>
+      <uri>model://iris</uri>
+    </include>
+
+    <include>
+      <uri>model://px4flow</uri>
+      <pose>0.05 0 -0.05 0 0 0</pose>
+    </include>
+
+    <joint name="px4flow_joint" type="revolute">
+      <parent>iris::base_link</parent>
+      <child>px4flow::link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+
+    <include>
+      <uri>model://lidar</uri>
+      <pose>0 0 -0.05 0 0 0</pose>
+      <name>downward_lidar</name>
+    </include>
+
+    <joint name="downward_lidar_joint" type="fixed">
+      <parent>iris::base_link</parent>
+      <child>downward_lidar::link</child>
+    </joint>
+
+    <include>
+      <uri>model://mid360</uri>
+      <pose>0 0 0.10 0 0 0</pose>
+      <name>mid360</name>
+    </include>
+
+    <joint name="mid360_joint" type="fixed">
+      <parent>iris::base_link</parent>
+      <child>mid360::mid360_link</child>
+    </joint>
+
+    <include>
+      <uri>model://depth_camera</uri>
+      <pose>0.10 0 -0.03 0 0 0</pose>
+      <name>front_depth_camera</name>
+    </include>
+
+    <joint name="front_depth_camera_joint" type="fixed">
+      <parent>iris::base_link</parent>
+      <child>front_depth_camera::link</child>
+    </joint>
+  </model>
+</sdf>

@@ -1,0 +1,418 @@
+# Mission configuration
+mission:
+  takeoff_altitude: 1.2
+  actions:
+    - type: "takeoff"
+      altitude: 0.0
+
+    - type: "hover"
+      duration: 3.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 0.0, 1.2]
+      yaw: 0.0
+      tolerance: 0.15
+
+    - type: "hover"
+      duration: 5.0
+
+    #走线(垂直走线)
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.3, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.3, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.6, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.6, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.9, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.9, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+
+    #垂直来回
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+
+
+
+
+
+
+
+
+
+    # 走线(走格子)
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 0.5, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 1.0, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 1.5, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 2.0, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.5, 2.0, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.5, 1.5, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.5, 1.0, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.5, 0.5, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.5, 0.0, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 0.5, 1.2]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 0.5, 0.5]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "hover"
+      duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.10
+
+
+
+
+
+
+
+
+
+    # 走线(水平走线)
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.3, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.3, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.7, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.7, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.15
+
+
+
+
+
+    # # 测试(方格)
+    # - type: "hover"
+    #   duration: 5.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 1.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [1.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.12
+
+    # - type: "hover"
+    #   duration: 2.0
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 1.2]
+    #   yaw: 0.0
+    #   tolerance: 0.08
+
+    # - type: "hover"
+    #   duration: 2.0
+
+
+
+
+    # - type: "move"
+    #   frame: "world_body"
+    #   position: [0.0, 0.0, 0.4]
+    #   yaw: 0.0
+    #   tolerance: 0.10
+
+    - type: "move"
+      frame: "world_body"
+      position: [0.0, 0.0, 0.0]
+      yaw: 0.0
+      tolerance: 0.10
+
+    - type: "land"
+
+system:
+  use_camera_aim: false
+  camera_aim_pid_p: 0.001
+  camera_aim_pid_i: 0.0
+  camera_aim_pid_d: 0.001
+  camera_aim_target_timeout_s: 0.5
+  camera_aim_stable_cycles: 20
+  camera_aim_max_step: 0.05
+  camera_aim_wait_first_targets_timeout_s: 2.0
+  camera_aim_no_target_confirm_s: 2.0
+  camera_aim_record_result_timeout_s: 5.0
+  camera_aim_scan_point_timeout_s: 30.0
+  auto_start_mission: false

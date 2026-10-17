@@ -1,0 +1,4 @@
+python3 /home/orangepi/drone_ws/src/drone_warehouse/python/text.py \
+--image /home/orangepi/plane.jpg \
+--barcode "SKU001|PKG001|A-1-1" \
+--format jpg
